@@ -447,9 +447,7 @@ Value const & BinarySearchTree<Key, Value>::operator[](const Key& key) const
 
 /**
 * An insert method to insert into a Binary Search Tree.
-* The tree will not remain balanced when inserting.
-* Recall: If key is already in the tree, you should 
-* overwrite the current value with the updated value.
+*
 */
 template<class Key, class Value>
 void BinarySearchTree<Key, Value>::insert(const std::pair<const Key, Value> &keyValuePair)
@@ -493,7 +491,7 @@ void BinarySearchTree<Key, Value>::remove(const Key& key)
     Node<Key, Value> *curr = internalFind(key);
     if (curr == NULL) return;
 
-    Node<Key, Value>* parent = curr->getParent(); // ✅ ADDED: parent was not defined if curr had 0 or 1 child
+    Node<Key, Value>* parent = curr->getParent(); // parent was not defined if curr had 0 or 1 child
 
     if (curr->getLeft() != NULL && curr->getRight() != NULL) { // has 2 children
         Node<Key, Value>* p = predecessor(curr);
